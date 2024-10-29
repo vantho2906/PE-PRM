@@ -40,6 +40,7 @@ public class TacgiaAdapter extends ArrayAdapter<Tacgia> {
         TextView tvEmail = convertView.findViewById(R.id.tvEmail);
         TextView tvDiaChi = convertView.findViewById(R.id.tvDiaChi);
         TextView tvDienThoai = convertView.findViewById(R.id.tvDienThoai);
+        Button more=(Button)convertView.findViewById(R.id.more);
 //        Button btnViewOnMap = convertView.findViewById(R.id.btnViewOnMap);
 
         tvTenTacgia.setText(tacgia.getTenTacgia());
@@ -47,11 +48,11 @@ public class TacgiaAdapter extends ArrayAdapter<Tacgia> {
         tvDiaChi.setText(tacgia.getDiaChi());
         tvDienThoai.setText(tacgia.getDienThoai());
 
-//        btnViewOnMap.setOnClickListener(v -> {
-//            Intent intent = new Intent(getContext(), MapActivity.class);
-//            intent.putExtra("tacgia", tacgia);
-//            getContext().startActivity(intent);
-//        });
+        more.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), MapActivity.class);
+            intent.putExtra("tacgia", tacgia);
+            getContext().startActivity(intent);
+        });
 
         convertView.setOnClickListener(v -> {
             ((ManageTacgiaActivity) getContext()).setSelectedTacgia(tacgia);

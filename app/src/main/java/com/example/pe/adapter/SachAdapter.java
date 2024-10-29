@@ -2,17 +2,20 @@ package com.example.pe.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pe.R;
 import com.example.pe.activity.ManageSachActivity;
+import com.example.pe.activity.MapActivity;
 import com.example.pe.helper.DatabaseHelper;
 import com.example.pe.model.Sach;
 
@@ -39,6 +42,8 @@ public class SachAdapter extends ArrayAdapter<Sach> {
         TextView tvTheLoai = convertView.findViewById(R.id.tvTheLoai);
         TextView tvTacgia = convertView.findViewById(R.id.tvTacgia);
 
+
+
         tvTenSach.setText(sach.getTenSach());
         tvNgayXb.setText(sach.getNgayXb());
         tvTheLoai.setText(sach.getTheLoai());
@@ -49,6 +54,7 @@ public class SachAdapter extends ArrayAdapter<Sach> {
         convertView.setOnClickListener(v -> {
             ((ManageSachActivity) getContext()).setSelectedSach(sach);
         });
+
 
         convertView.setOnLongClickListener(v -> {
             new AlertDialog.Builder(getContext())

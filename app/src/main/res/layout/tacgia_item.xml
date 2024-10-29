@@ -1,33 +1,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:layout_weight="10"
+    android:weightSum="10"
+    >
 
-    <TextView
-        android:id="@+id/tvTenTacgia"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tên Tác Giả"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_weight="8"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email" />
+        <TextView
+            android:id="@+id/tvTenTacgia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên Tác Giả"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvDiaChi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Địa Chỉ" />
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email" />
 
-    <TextView
-        android:id="@+id/tvDienThoai"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvDiaChi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Địa Chỉ" />
+
+        <TextView
+            android:id="@+id/tvDienThoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Điện Thoại" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/more"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:text="Điện Thoại" />
+        android:layout_weight="2"
+        android:text="More" />
 
 </LinearLayout>
