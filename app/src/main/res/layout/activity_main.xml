@@ -6,17 +6,17 @@
     android:gravity="center">
 
     <Button
-        android:id="@+id/btnAddSach"
+        android:id="@+id/btnAddChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sách"
+        android:text="Child"
         android:layout_marginBottom="16dp" />
 
     <Button
-        android:id="@+id/btnAddTacgia"
+        android:id="@+id/btnAddParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tác Giả"
+        android:text="Parent"
         android:layout_marginBottom="16dp" />
 
     <Button

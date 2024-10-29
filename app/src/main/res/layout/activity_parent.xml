@@ -5,37 +5,33 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/etTenSach"
+        android:id="@+id/etParentField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên Sách" />
+        android:hint="Field 1" />
 
     <EditText
-        android:id="@+id/etNgayXb"
+        android:id="@+id/etParentField2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ngày XB" />
+        android:hint="Field 2" />
 
     <EditText
-        android:id="@+id/etTheLoai"
+        android:id="@+id/etParentField3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Thể Loại" />
+        android:hint="Field 3" />
 
-    <Spinner
-        android:id="@+id/spinnerTacgia"
+    <EditText
+        android:id="@+id/etParentField4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Field 4" />
 
     <Button
-        android:id="@+id/btnAddUpdateSach"
+        android:id="@+id/btnAddParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Sách" />
+        android:text="Thêm Parent" />
 
-    <ListView
-        android:id="@+id/lvSachs"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp"/>
 </LinearLayout>

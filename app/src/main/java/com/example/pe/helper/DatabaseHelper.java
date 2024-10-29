@@ -14,19 +14,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTacgiaTable = "CREATE TABLE Tacgia (idTacgia INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "tenTacgia TEXT, email TEXT, diaChi TEXT, dienThoai TEXT)";
-        db.execSQL(createTacgiaTable);
+        String createParentTable = "CREATE TABLE Parent (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "field1 TEXT, field2 TEXT, field3 TEXT, field4 TEXT)";
+        db.execSQL(createParentTable);
 
-        String createSachTable = "CREATE TABLE Sach (idSach INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "tenSach TEXT, ngayXb TEXT, theLoai TEXT, idTacgia INTEGER)";
-        db.execSQL(createSachTable);
+        String createChildTable = "CREATE TABLE Child (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "field1 TEXT, field2 TEXT, field3 TEXT, idParent INTEGER)";
+        db.execSQL(createChildTable);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS Tacgia");
-        db.execSQL("DROP TABLE IF EXISTS Sach");
+        db.execSQL("DROP TABLE IF EXISTS Parent");
+        db.execSQL("DROP TABLE IF EXISTS Child");
         onCreate(db);
     }
 }

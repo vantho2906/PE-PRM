@@ -2,67 +2,64 @@ package com.example.pe.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pe.R;
-import com.example.pe.activity.ManageTacgiaActivity;
-import com.example.pe.activity.MapActivity;
+import com.example.pe.activity.ManageParentActivity;
 import com.example.pe.helper.DatabaseHelper;
-import com.example.pe.model.Tacgia;
+import com.example.pe.model.Parent;
 
 import java.util.List;
 
-public class TacgiaAdapter extends ArrayAdapter<Tacgia> {
+public class ParentAdapter extends ArrayAdapter<Parent> {
     private DatabaseHelper dbHelper;
 
-    public TacgiaAdapter(Context context, List<Tacgia> tacgias, DatabaseHelper dbHelper) {
-        super(context, 0, tacgias);
+    public ParentAdapter(Context context, List<Parent> parents, DatabaseHelper dbHelper) {
+        super(context, 0, parents);
         this.dbHelper = dbHelper;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Tacgia tacgia = getItem(position);
+    public View getView(int position, View convertView, ViewGroup parents) {
+        Parent parent = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.tacgia_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.parent_item, parents, false);
         }
 
-        TextView tvTenTacgia = convertView.findViewById(R.id.tvTenTacgia);
-        TextView tvEmail = convertView.findViewById(R.id.tvEmail);
-        TextView tvDiaChi = convertView.findViewById(R.id.tvDiaChi);
-        TextView tvDienThoai = convertView.findViewById(R.id.tvDienThoai);
+        TextView tvTenParent = convertView.findViewById(R.id.tvParentField1);
+        TextView tvEmail = convertView.findViewById(R.id.tvParentField2);
+        TextView tvDiaChi = convertView.findViewById(R.id.tvParentField3);
+        TextView tvDienThoai = convertView.findViewById(R.id.tvParentField4);
 //        Button btnViewOnMap = convertView.findViewById(R.id.btnViewOnMap);
 
-        tvTenTacgia.setText(tacgia.getTenTacgia());
-        tvEmail.setText(tacgia.getEmail());
-        tvDiaChi.setText(tacgia.getDiaChi());
-        tvDienThoai.setText(tacgia.getDienThoai());
+        tvTenParent.setText(parent.getField1());
+        tvEmail.setText(parent.getField2());
+        tvDiaChi.setText(parent.getField3());
+        tvDienThoai.setText(parent.getField4());
 
 //        btnViewOnMap.setOnClickListener(v -> {
 //            Intent intent = new Intent(getContext(), MapActivity.class);
-//            intent.putExtra("tacgia", tacgia);
+//            intent.putExtra("parent", parent);
 //            getContext().startActivity(intent);
 //        });
 
         convertView.setOnClickListener(v -> {
-            ((ManageTacgiaActivity) getContext()).setSelectedTacgia(tacgia);
+            ((ManageParentActivity) getContext()).setSelectedParent(parent);
         });
 
         convertView.setOnLongClickListener(v -> {
             new AlertDialog.Builder(getContext())
-                    .setTitle("Delete Tacgia")
+                    .setTitle("Delete Parent")
                     .setMessage("Are you sure you want to delete this tác giả?")
                     .setPositiveButton("Yes", (dialog, which) -> {
-                        deleteTacgia(tacgia);
+                        deleteParent(parent);
                         Toast.makeText(getContext(), "Tác Giả deleted", Toast.LENGTH_SHORT).show();
                     })
                     .setNegativeButton("No", null)
@@ -73,10 +70,10 @@ public class TacgiaAdapter extends ArrayAdapter<Tacgia> {
         return convertView;
     }
 
-    private void deleteTacgia(Tacgia tacgia) {
+    private void deleteParent(Parent parent) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("Tacgia", "idTacgia=?", new String[]{String.valueOf(tacgia.getIdTacgia())});
-        remove(tacgia);
+        db.delete("Parent", "id=?", new String[]{String.valueOf(parent.getId())});
+        remove(parent);
         notifyDataSetChanged();
     }
 }

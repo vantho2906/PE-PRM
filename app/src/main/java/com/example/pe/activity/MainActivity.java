@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mAuth = FirebaseAuth.getInstance();
 
-        Button btnAddSach = findViewById(R.id.btnAddSach);
-        btnAddSach.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ManageSachActivity.class)));
+        Button btnAddChild = findViewById(R.id.btnAddChild);
+        btnAddChild.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ManageChildActivity.class)));
 
-        Button btnAddTacgia = findViewById(R.id.btnAddTacgia);
-        btnAddTacgia.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ManageTacgiaActivity.class)));
+        Button btnAddParent = findViewById(R.id.btnAddParent);
+        btnAddParent.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ManageParentActivity.class)));
 
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(v -> signOut());

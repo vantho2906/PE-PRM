@@ -13,7 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.pe.R;
-import com.example.pe.model.Tacgia;
+import com.example.pe.model.Parent;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -28,7 +28,7 @@ import org.json.JSONObject;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Tacgia tacgia;
+    private Parent parent;
     private RequestQueue requestQueue;
     private TextView addressTextView;
 
@@ -37,7 +37,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        tacgia = (Tacgia) getIntent().getSerializableExtra("tacgia");
+        parent = (Parent) getIntent().getSerializableExtra("parent");
 
         requestQueue = Volley.newRequestQueue(this);
         addressTextView = findViewById(R.id.address_text);
@@ -46,7 +46,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        geocodeAddress(tacgia.getDiaChi());
+        geocodeAddress(parent.getField3());
     }
 
     @Override
@@ -71,10 +71,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
                                 addressTextView.setText("Vĩ độ: " + lat + "\nKinh độ: " + lng + "\n" + displayName);
 
-                                LatLng tacgiaLocation = new LatLng(lat, lng);
+                                LatLng parentLocation = new LatLng(lat, lng);
                                 if (mMap != null) {
-                                    mMap.addMarker(new MarkerOptions().position(tacgiaLocation).title(tacgia.getTenTacgia()));
-                                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tacgiaLocation, 15));
+                                    mMap.addMarker(new MarkerOptions().position(parentLocation).title(parent.getField1()));
+                                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(parentLocation, 15));
                                 }
                             } else {
                                 Toast.makeText(MapActivity.this, "Không tìm thấy địa chỉ", Toast.LENGTH_SHORT).show();
