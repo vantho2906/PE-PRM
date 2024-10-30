@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.pe.R;
+import com.example.pe.model.Child;
 import com.example.pe.model.Parent;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,7 +30,7 @@ import org.json.JSONObject;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Parent parent;
+    private Child child;
     private RequestQueue requestQueue;
     private TextView addressTextView;
 
@@ -38,7 +39,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        parent = (Parent) getIntent().getSerializableExtra("parent");
+        child = (Child) getIntent().getSerializableExtra("child");
 
         requestQueue = Volley.newRequestQueue(this);
         addressTextView = findViewById(R.id.address_text);
@@ -47,7 +48,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        geocodeAddress(parent.getField1());
+        geocodeAddress(child.getField5());
     }
 
     @Override
@@ -75,7 +76,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                                 LatLng parentLocation = new LatLng(lat, lng);
                                 Log.d("map", "onResponse: "+mMap);
                                 if (mMap != null) {
-                                    mMap.addMarker(new MarkerOptions().position(parentLocation).title(parent.getField1()));
+                                    mMap.addMarker(new MarkerOptions().position(parentLocation).title(child.getField1()));
                                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(parentLocation, 15));
                                 }
                             } else {

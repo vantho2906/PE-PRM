@@ -3,25 +3,47 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="#F3F4F6"> <!-- Màu nền -->
 
+    <!-- Nút Student với biểu tượng sinh viên -->
     <Button
         android:id="@+id/btnClickChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Student"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#4285F4"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:drawableStart="@drawable/ic_student"
+        android:drawablePadding="8dp" />
 
+    <!-- Nút Major với biểu tượng chuyên ngành -->
     <Button
         android:id="@+id/btnAddParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Major"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#34A853"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:drawableStart="@drawable/ic_major"
+        android:drawablePadding="8dp" />
 
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Đăng Xuất" />
+        android:text="Logout"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#EA4335"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:drawableStart="@drawable/ic_logout"
+        android:drawablePadding="8dp" />
+
 </LinearLayout>

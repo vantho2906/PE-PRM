@@ -21,29 +21,5 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tvParentField2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Field 2" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/tvParentField3"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Field 3" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/tvParentField4"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Field 4" />-->
     </LinearLayout>
-
-    <Button
-    android:id="@+id/more"
-    android:layout_width="120dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="2"
-    android:text="More" />
 </LinearLayout>

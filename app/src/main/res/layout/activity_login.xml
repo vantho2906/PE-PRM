@@ -3,12 +3,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#F3F4F6">
+
+    <ImageView
+        android:id="@+id/google_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_google_logo"
+        android:layout_marginBottom="24dp" />
 
     <Button
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign in with Google" />
+        android:text="Sign in with Google"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#4285F4"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="@drawable/ic_google_logo"
+        android:drawablePadding="8dp"
+        />
 
 </LinearLayout>

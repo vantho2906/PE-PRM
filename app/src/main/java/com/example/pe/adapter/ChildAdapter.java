@@ -2,17 +2,20 @@ package com.example.pe.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pe.R;
 import com.example.pe.activity.ManageChildActivity;
+import com.example.pe.activity.MapActivity;
 import com.example.pe.helper.DatabaseHelper;
 import com.example.pe.model.Child;
 
@@ -52,6 +55,12 @@ public class ChildAdapter extends ArrayAdapter<Child> {
 
         convertView.setOnClickListener(v -> {
             ((ManageChildActivity) getContext()).setSelectedChild(child);
+        });
+        Button btnViewOnMap = convertView.findViewById(R.id.more);
+        btnViewOnMap.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), MapActivity.class);
+            intent.putExtra("child", child);
+            getContext().startActivity(intent);
         });
 
         convertView.setOnLongClickListener(v -> {

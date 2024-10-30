@@ -40,18 +40,12 @@ public class ParentAdapter extends ArrayAdapter<Parent> {
 //        TextView tvEmail = convertView.findViewById(R.id.tvParentField2);
 //        TextView tvDiaChi = convertView.findViewById(R.id.tvParentField3);
 //        TextView tvDienThoai = convertView.findViewById(R.id.tvParentField4);
-        Button btnViewOnMap = convertView.findViewById(R.id.more);
 
         tvTenParent.setText(parent.getField1());
 //        tvEmail.setText(parent.getField2());
 //        tvDiaChi.setText(parent.getField3());
 //        tvDienThoai.setText(parent.getField4());
 
-        btnViewOnMap.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), MapActivity.class);
-            intent.putExtra("parent", parent);
-            getContext().startActivity(intent);
-        });
 
         convertView.setOnClickListener(v -> {
             ((ManageParentActivity) getContext()).setSelectedParent(parent);
