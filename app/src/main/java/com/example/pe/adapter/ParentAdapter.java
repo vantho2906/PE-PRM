@@ -2,16 +2,19 @@ package com.example.pe.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pe.R;
 import com.example.pe.activity.ManageParentActivity;
+import com.example.pe.activity.MapActivity;
 import com.example.pe.helper.DatabaseHelper;
 import com.example.pe.model.Parent;
 
@@ -37,18 +40,18 @@ public class ParentAdapter extends ArrayAdapter<Parent> {
         TextView tvEmail = convertView.findViewById(R.id.tvParentField2);
         TextView tvDiaChi = convertView.findViewById(R.id.tvParentField3);
         TextView tvDienThoai = convertView.findViewById(R.id.tvParentField4);
-//        Button btnViewOnMap = convertView.findViewById(R.id.btnViewOnMap);
+        Button btnViewOnMap = convertView.findViewById(R.id.more);
 
         tvTenParent.setText(parent.getField1());
         tvEmail.setText(parent.getField2());
         tvDiaChi.setText(parent.getField3());
         tvDienThoai.setText(parent.getField4());
 
-//        btnViewOnMap.setOnClickListener(v -> {
-//            Intent intent = new Intent(getContext(), MapActivity.class);
-//            intent.putExtra("parent", parent);
-//            getContext().startActivity(intent);
-//        });
+        btnViewOnMap.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), MapActivity.class);
+            intent.putExtra("parent", parent);
+            getContext().startActivity(intent);
+        });
 
         convertView.setOnClickListener(v -> {
             ((ManageParentActivity) getContext()).setSelectedParent(parent);
