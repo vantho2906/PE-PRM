@@ -53,8 +53,8 @@ public class ParentAdapter extends ArrayAdapter<Parent> {
 
         convertView.setOnLongClickListener(v -> {
             new AlertDialog.Builder(getContext())
-                    .setTitle("Delete Parent")
-                    .setMessage("Are you sure you want to delete this tác giả?")
+                    .setTitle("Delete Major")
+                    .setMessage("Are you sure you want to delete this major?")
                     .setPositiveButton("Yes", (dialog, which) -> {
                         deleteParent(parent);
                         Toast.makeText(getContext(), "Tác Giả deleted", Toast.LENGTH_SHORT).show();

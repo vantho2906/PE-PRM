@@ -240,7 +240,7 @@ public class ManageChildActivity extends AppCompatActivity {
         etChildField4.setText(child.getField4());
         etChildField5.setText(child.getField5());
         spinnerParent.setSelection(getParentPosition(child.getIdParent()));
-        btnAddUpdateChild.setText("Update Child");
+        btnAddUpdateChild.setText("Update Student");
     }
 
     private int getParentPosition(int idParent) {

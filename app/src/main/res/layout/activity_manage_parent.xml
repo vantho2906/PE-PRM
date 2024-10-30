@@ -2,41 +2,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#F3F4F6">
 
     <EditText
         android:id="@+id/etParentField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Major Name" />
-
-<!--    <EditText-->
-<!--        android:id="@+id/etParentField2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="Field 2" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/etParentField3"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="Field 3" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/etParentField4"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="Field 4" />-->
+        android:hint="Major Name"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="#757575"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnAddUpdateParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Major" />
+        android:text="Thêm Major"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#34A853"
+    android:padding="12dp"
+    android:elevation="4dp"
+    android:textStyle="bold"
+    android:layout_marginBottom="16dp" />
 
     <ListView
         android:id="@+id/lvParents"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:padding="8dp"
         android:layout_marginTop="16dp"/>
 </LinearLayout>

@@ -2,52 +2,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#F0F0F0">
 
     <EditText
         android:id="@+id/etChildField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name" />
+        android:hint="Name"
+        android:padding="12dp"
+        android:backgroundTint="#BDBDBD"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#757575"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etChildField2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Date" />
+        android:hint="Date"
+        android:padding="12dp"
+        android:backgroundTint="#BDBDBD"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#757575"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etChildField3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Gender" />
+        android:hint="Gender"
+        android:padding="12dp"
+        android:backgroundTint="#BDBDBD"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#757575"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etChildField4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email" />
+        android:hint="Email"
+        android:padding="12dp"
+        android:backgroundTint="#BDBDBD"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#757575"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etChildField5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Address" />
+        android:hint="Address"
+        android:padding="12dp"
+        android:backgroundTint="#BDBDBD"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#757575"
+        android:textSize="16sp" />
 
     <Spinner
         android:id="@+id/spinnerParent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BDBDBD"
+        android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnAddUpdateChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Student" />
+        android:text="Thêm Student"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#1E88E5"
+    android:padding="12dp"
+    android:elevation="4dp"
+    android:layout_marginBottom="16dp"
+    android:textStyle="bold" />
 
     <ListView
         android:id="@+id/lvChildren"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:padding="8dp"
         android:layout_marginTop="16dp"/>
 </LinearLayout>
