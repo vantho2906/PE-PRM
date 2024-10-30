@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mAuth = FirebaseAuth.getInstance();
 
-        Button btnAddChild = findViewById(R.id.btnAddChild);
+        Button btnAddChild = findViewById(R.id.btnClickChild);
         btnAddChild.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ManageChildActivity.class)));
 
         Button btnAddParent = findViewById(R.id.btnAddParent);
