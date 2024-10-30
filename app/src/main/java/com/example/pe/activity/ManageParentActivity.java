@@ -154,7 +154,7 @@ public class ManageParentActivity extends AppCompatActivity {
     public void setSelectedParent(Parent parent) {
         selectedParent = parent;
         etParentField1.setText(parent.getField1());
-        btnAddUpdateParent.setText("Update Parent");
+        btnAddUpdateParent.setText("Update Major");
     }
 
     private void viewOnMap(Parent parent) {

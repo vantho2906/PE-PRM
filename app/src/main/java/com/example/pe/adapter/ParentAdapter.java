@@ -40,18 +40,12 @@ public class ParentAdapter extends ArrayAdapter<Parent> {
 //        TextView tvEmail = convertView.findViewById(R.id.tvParentField2);
 //        TextView tvDiaChi = convertView.findViewById(R.id.tvParentField3);
 //        TextView tvDienThoai = convertView.findViewById(R.id.tvParentField4);
-        Button btnViewOnMap = convertView.findViewById(R.id.more);
 
         tvTenParent.setText(parent.getField1());
 //        tvEmail.setText(parent.getField2());
 //        tvDiaChi.setText(parent.getField3());
 //        tvDienThoai.setText(parent.getField4());
 
-        btnViewOnMap.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), MapActivity.class);
-            intent.putExtra("parent", parent);
-            getContext().startActivity(intent);
-        });
 
         convertView.setOnClickListener(v -> {
             ((ManageParentActivity) getContext()).setSelectedParent(parent);
@@ -59,11 +53,11 @@ public class ParentAdapter extends ArrayAdapter<Parent> {
 
         convertView.setOnLongClickListener(v -> {
             new AlertDialog.Builder(getContext())
-                    .setTitle("Delete Parent")
-                    .setMessage("Are you sure you want to delete this tác giả?")
+                    .setTitle("Delete")
+                    .setMessage("Are you sure you want to delete this item?")
                     .setPositiveButton("Yes", (dialog, which) -> {
                         deleteParent(parent);
-                        Toast.makeText(getContext(), "Tác Giả deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Item deleted", Toast.LENGTH_SHORT).show();
                     })
                     .setNegativeButton("No", null)
                     .show();

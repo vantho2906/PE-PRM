@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,7 +9,9 @@
         android:id="@+id/etChildField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Field 1" />
+        android:hint="Field 1"
+        android:padding="12dp"
+        android:background="#E0E0E0" /> <!-- Light gray background -->
 
     <EditText
         android:id="@+id/etChildField2"
@@ -16,23 +19,31 @@
         android:layout_height="wrap_content"
         android:hint="Field 2"
         android:focusable="false"
-        android:clickable="true" />
+        android:clickable="true"
+        android:padding="12dp"
+        android:background="#E0E0E0" /> <!-- Light gray background -->
 
     <EditText
         android:id="@+id/etChildField3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Field 3" />
+        android:hint="Field 3"
+        android:padding="12dp"
+        android:background="#E0E0E0" /> <!-- Light gray background -->
 
     <Spinner
         android:id="@+id/spinnerParent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" /> <!-- Added margin for spacing -->
 
     <Button
         android:id="@+id/btnAddChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Child" />
+        android:text="Thêm Child"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#2196F3"
+    android:textColor="#FFFFFF" /> <!-- White text -->
 
 </LinearLayout>

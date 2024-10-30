@@ -61,7 +61,9 @@ public class LoginActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
+                redirectToMainActivity();
                 if (account != null) {
+
                     firebaseAuthWithGoogle(account.getIdToken());
                 }
             } catch (ApiException e) {
@@ -89,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
+        redirectToMainActivity();
         if (user != null) {
             redirectToMainActivity();
         }

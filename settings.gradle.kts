@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PRM392_SE171261_TranVanTho"
+rootProject.name = "SE1728_SE171198_Truong_Nhat_Quang"
 include(":app")

@@ -1,27 +1,37 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="#FFA500"> <!-- Orange background color -->
+
+    <Button
+        android:id="@+id/btnAddParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#3792EB"
+        android:text="Major"
+        android:textColor="#FFFFFF" /> <!-- White text -->
 
     <Button
         android:id="@+id/btnClickChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Student"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
 
-    <Button
-        android:id="@+id/btnAddParent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Major"
-        android:layout_marginBottom="16dp" />
+        android:backgroundTint="#388E3C"
+    android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Đăng Xuất" />
+        android:text="Đăng Xuất"
+
+        android:backgroundTint="#D32F2F"
+    android:textColor="#FFFFFF" /> <!-- White text -->
 </LinearLayout>

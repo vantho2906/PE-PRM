@@ -2,17 +2,20 @@ package com.example.pe.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pe.R;
 import com.example.pe.activity.ManageChildActivity;
+import com.example.pe.activity.MapActivity;
 import com.example.pe.helper.DatabaseHelper;
 import com.example.pe.model.Child;
 
@@ -49,18 +52,24 @@ public class ChildAdapter extends ArrayAdapter<Child> {
 
         String parentName = getParentName(child.getIdParent());
         parentFieldName.setText(parentName);
+        Button btnViewOnMap = convertView.findViewById(R.id.more);
 
         convertView.setOnClickListener(v -> {
             ((ManageChildActivity) getContext()).setSelectedChild(child);
         });
+        btnViewOnMap.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), MapActivity.class);
+            intent.putExtra("child", child);
+            getContext().startActivity(intent);
+        });
 
         convertView.setOnLongClickListener(v -> {
             new AlertDialog.Builder(getContext())
-                    .setTitle("Delete Student")
-                    .setMessage("Are you sure you want to delete this student?")
+                    .setTitle("Delete")
+                    .setMessage("Are you sure you want to delete?")
                     .setPositiveButton("Yes", (dialog, which) -> {
                         deleteChild(child);
-                        Toast.makeText(getContext(), "Student deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Deleted", Toast.LENGTH_SHORT).show();
                     })
                     .setNegativeButton("No", null)
                     .show();
