@@ -5,34 +5,34 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/etTenSach"
+        android:id="@+id/etChildField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên Sách" />
+        android:hint="Field 1" />
 
     <EditText
-        android:id="@+id/etNgayXb"
+        android:id="@+id/etChildField2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ngày XB"
+        android:hint="Field 2"
         android:focusable="false"
         android:clickable="true" />
 
     <EditText
-        android:id="@+id/etTheLoai"
+        android:id="@+id/etChildField3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Thể Loại" />
+        android:hint="Field 3" />
 
     <Spinner
-        android:id="@+id/spinnerTacgia"
+        android:id="@+id/spinnerParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btnAddSach"
+        android:id="@+id/btnAddChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Sách" />
+        android:text="Thêm Child" />
 
 </LinearLayout>

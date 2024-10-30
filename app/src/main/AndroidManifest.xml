@@ -25,10 +25,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.SachActivity"/>
-        <activity android:name=".activity.ManageSachActivity"/>
-        <activity android:name=".activity.ManageTacgiaActivity"/>
-        <activity android:name=".activity.TacgiaActivity"/>
+        <activity android:name=".activity.ChildActivity"/>
+        <activity android:name=".activity.ManageChildActivity"/>
+        <activity android:name=".activity.ManageParentActivity"/>
+        <activity android:name=".activity.ParentActivity"/>
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.MapActivity"/>
     </application>

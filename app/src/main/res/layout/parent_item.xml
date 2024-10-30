@@ -5,29 +5,29 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tvTenSach"
+        android:id="@+id/tvParentField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tên Sách"
+        android:text="Field 1"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvNgayXb"
+        android:id="@+id/tvParentField2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ngày XB" />
+        android:text="Field 2" />
 
     <TextView
-        android:id="@+id/tvTheLoai"
+        android:id="@+id/tvParentField3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thể Loại" />
+        android:text="Field 3" />
 
     <TextView
-        android:id="@+id/tvTacgia"
+        android:id="@+id/tvParentField4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tác Giả" />
+        android:text="Field 4" />
 
 </LinearLayout>

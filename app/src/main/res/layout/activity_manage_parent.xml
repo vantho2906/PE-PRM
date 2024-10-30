@@ -5,33 +5,38 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/etTenTacgia"
+        android:id="@+id/etParentField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên Tác Giả" />
+        android:hint="Field 1" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etParentField2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email" />
+        android:hint="Field 2" />
 
     <EditText
-        android:id="@+id/etDiaChi"
+        android:id="@+id/etParentField3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Địa Chỉ" />
+        android:hint="Field 3" />
 
     <EditText
-        android:id="@+id/etDienThoai"
+        android:id="@+id/etParentField4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Điện Thoại" />
+        android:hint="Field 4" />
 
     <Button
-        android:id="@+id/btnAddTacgia"
+        android:id="@+id/btnAddUpdateParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Tác Giả" />
+        android:text="Thêm Parent" />
 
+    <ListView
+        android:id="@+id/lvParents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>
