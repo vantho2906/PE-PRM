@@ -1,6 +1,7 @@
 package com.example.pe.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +73,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                                 addressTextView.setText("Vĩ độ: " + lat + "\nKinh độ: " + lng + "\n" + displayName);
 
                                 LatLng parentLocation = new LatLng(lat, lng);
+                                Log.d("map", "onResponse: "+mMap);
                                 if (mMap != null) {
                                     mMap.addMarker(new MarkerOptions().position(parentLocation).title(parent.getField1()));
                                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(parentLocation, 15));
