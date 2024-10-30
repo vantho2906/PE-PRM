@@ -8,31 +8,31 @@
         android:id="@+id/etParentField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Field 1" />
+        android:hint="Major Name" />
 
-    <EditText
-        android:id="@+id/etParentField2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Field 2" />
+<!--    <EditText-->
+<!--        android:id="@+id/etParentField2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Field 2" />-->
 
-    <EditText
-        android:id="@+id/etParentField3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Field 3" />
+<!--    <EditText-->
+<!--        android:id="@+id/etParentField3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Field 3" />-->
 
-    <EditText
-        android:id="@+id/etParentField4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Field 4" />
+<!--    <EditText-->
+<!--        android:id="@+id/etParentField4"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Field 4" />-->
 
     <Button
         android:id="@+id/btnAddUpdateParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Parent" />
+        android:text="Thêm Major" />
 
     <ListView
         android:id="@+id/lvParents"

@@ -9,14 +9,14 @@
         android:id="@+id/btnClickChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Child"
+        android:text="Student"
         android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnAddParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Parent"
+        android:text="Major"
         android:layout_marginBottom="16dp" />
 
     <Button

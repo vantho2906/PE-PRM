@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "abc.db";
+    private static final String DATABASE_NAME = "school.db";
     private static final int DATABASE_VERSION = 1;
 
     public DatabaseHelper(Context context) {
@@ -15,11 +15,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createParentTable = "CREATE TABLE Parent (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "field1 TEXT, field2 TEXT, field3 TEXT, field4 TEXT)";
+                "field1 TEXT)";
         db.execSQL(createParentTable);
 
         String createChildTable = "CREATE TABLE Child (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "field1 TEXT, field2 TEXT, field3 TEXT, idParent INTEGER)";
+                "field1 TEXT, field2 TEXT, field3 TEXT, field4 TEXT, field5 TEXT, idParent INTEGER)";
         db.execSQL(createChildTable);
     }
 

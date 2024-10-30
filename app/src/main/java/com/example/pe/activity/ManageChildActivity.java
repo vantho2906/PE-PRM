@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 
 public class ManageChildActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
-    private EditText etChildField1, etChildField2, etChildField3;
+    private EditText etChildField1, etChildField2, etChildField3, etChildField4, etChildField5;
     private Spinner spinnerParent;
     private Button btnAddUpdateChild;
     private ListView lvChilds;
@@ -43,6 +43,8 @@ public class ManageChildActivity extends AppCompatActivity {
         etChildField1 = findViewById(R.id.etChildField1);
         etChildField2 = findViewById(R.id.etChildField2);
         etChildField3 = findViewById(R.id.etChildField3);
+        etChildField4 = findViewById(R.id.etChildField4);
+        etChildField5 = findViewById(R.id.etChildField5);
         spinnerParent = findViewById(R.id.spinnerParent);
         btnAddUpdateChild = findViewById(R.id.btnAddUpdateChild);
         lvChilds = findViewById(R.id.lvChildren);
@@ -80,9 +82,11 @@ public class ManageChildActivity extends AppCompatActivity {
                 String field1 = cursor.getString(cursor.getColumnIndexOrThrow("field1"));
                 String field2 = cursor.getString(cursor.getColumnIndexOrThrow("field2"));
                 String field3 = cursor.getString(cursor.getColumnIndexOrThrow("field3"));
+                String field4 = cursor.getString(cursor.getColumnIndexOrThrow("field4"));
+                String field5 = cursor.getString(cursor.getColumnIndexOrThrow("field5"));
                 int idParent = cursor.getInt(cursor.getColumnIndexOrThrow("idParent"));
 
-                Child child = new Child(id, field1, field2, field3, idParent);
+                Child child = new Child(id, field1, field2, field3, field4, field5, idParent);
                 childList.add(child);
             } while (cursor.moveToNext());
         }
@@ -99,11 +103,11 @@ public class ManageChildActivity extends AppCompatActivity {
             do {
                 int idParent = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 String tenParent = cursor.getString(cursor.getColumnIndexOrThrow("field1"));
-                String email = cursor.getString(cursor.getColumnIndexOrThrow("field2"));
-                String diaChi = cursor.getString(cursor.getColumnIndexOrThrow("field3"));
-                String dienThoai = cursor.getString(cursor.getColumnIndexOrThrow("field4"));
+//                String email = cursor.getString(cursor.getColumnIndexOrThrow("field2"));
+//                String diaChi = cursor.getString(cursor.getColumnIndexOrThrow("field3"));
+//                String dienThoai = cursor.getString(cursor.getColumnIndexOrThrow("field4"));
 
-                Parent parent = new Parent(idParent, tenParent, email, diaChi, dienThoai);
+                Parent parent = new Parent(idParent, tenParent);
                 parentList.add(parent);
             } while (cursor.moveToNext());
         }
@@ -122,9 +126,11 @@ public class ManageChildActivity extends AppCompatActivity {
         String tenChild = etChildField1.getText().toString().trim();
         String ngayXb = etChildField2.getText().toString().trim();
         String theLoai = etChildField3.getText().toString().trim();
+        String field4 = etChildField4.getText().toString().trim();
+        String field5 = etChildField5.getText().toString().trim();
         int idParent = parentList.get(spinnerParent.getSelectedItemPosition()).getId();
 
-        if (!validateInputs(tenChild, ngayXb, theLoai)) {
+        if (!validateInputs(tenChild, ngayXb, theLoai, field4, field5)) {
             return;
         }
 
@@ -133,18 +139,22 @@ public class ManageChildActivity extends AppCompatActivity {
         values.put("field1", tenChild);
         values.put("field2", ngayXb);
         values.put("field3", theLoai);
+        values.put("field4", field4);
+        values.put("field5", field5);
         values.put("idParent", idParent);
 
         long result = db.insert("Child", null, values);
         if (result != -1) {
-            Toast.makeText(this, "Sách added successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Student added successfully", Toast.LENGTH_SHORT).show();
             loadChildren();
             etChildField1.setText("");
             etChildField2.setText("");
             etChildField3.setText("");
+            etChildField4.setText("");
+            etChildField5.setText("");
             spinnerParent.setSelection(0);
         } else {
-            Toast.makeText(this, "Failed to add sách", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Failed to add Student", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -152,9 +162,11 @@ public class ManageChildActivity extends AppCompatActivity {
         String tenChild = etChildField1.getText().toString().trim();
         String ngayXb = etChildField2.getText().toString().trim();
         String theLoai = etChildField3.getText().toString().trim();
+        String field4 = etChildField4.getText().toString().trim();
+        String field5 = etChildField5.getText().toString().trim();
         int idParent = parentList.get(spinnerParent.getSelectedItemPosition()).getId();
 
-        if (!validateInputs(tenChild, ngayXb, theLoai)) {
+        if (!validateInputs(tenChild, ngayXb, theLoai, field4, field5)) {
             return;
         }
 
@@ -163,36 +175,50 @@ public class ManageChildActivity extends AppCompatActivity {
         values.put("field1", tenChild);
         values.put("field2", ngayXb);
         values.put("field3", theLoai);
+        values.put("field4", field4);
+        values.put("field5", field5);
         values.put("idParent", idParent);
 
-        int result = db.update("Child", values, "idChild=?", new String[]{String.valueOf(selectedChild.getId())});
+        int result = db.update("Child", values, "id=?", new String[]{String.valueOf(selectedChild.getId())});
         if (result > 0) {
             Toast.makeText(this, "Updated successfully", Toast.LENGTH_SHORT).show();
             loadChildren();
             etChildField1.setText("");
             etChildField2.setText("");
             etChildField3.setText("");
+            etChildField4.setText("");
+            etChildField5.setText("");
             spinnerParent.setSelection(0);
             selectedChild = null;
-            btnAddUpdateChild.setText("Add Sách");
+            btnAddUpdateChild.setText("Add Student");
         } else {
-            Toast.makeText(this, "Failed to update sách", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Failed to update Student", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private boolean validateInputs(String tenChild, String ngayXb, String theLoai) {
-        if (tenChild.isEmpty()) {
-            Toast.makeText(this, "Tên sách không được để trống", Toast.LENGTH_SHORT).show();
+    private boolean validateInputs(String name, String date, String gender, String email, String address) {
+        if (name.isEmpty()) {
+            Toast.makeText(this, "Tên student không được để trống", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (ngayXb.isEmpty() || !Pattern.matches("\\d{2}/\\d{2}/\\d{4}", ngayXb)) {
-            Toast.makeText(this, "Ngày xuất bản không hợp lệ", Toast.LENGTH_SHORT).show();
+        if (date.isEmpty() || !Pattern.matches("\\d{2}/\\d{2}/\\d{4}", date)) {
+            Toast.makeText(this, "Date không hợp lệ", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (theLoai.isEmpty()) {
-            Toast.makeText(this, "Thể loại không được để trống", Toast.LENGTH_SHORT).show();
+        if (gender.isEmpty() || !Pattern.matches("(?i)^(male|female)$", gender)) {
+            Toast.makeText(this, "Gender không hợp lệ", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (email.isEmpty() || !Pattern.matches("^[A-Za-z0-9+_.-]+@(.+)$", email)) {
+            Toast.makeText(this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (address.isEmpty()) {
+            Toast.makeText(this, "Address không được trống", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -211,6 +237,8 @@ public class ManageChildActivity extends AppCompatActivity {
         etChildField1.setText(child.getField1());
         etChildField2.setText(child.getField2());
         etChildField3.setText(child.getField3());
+        etChildField4.setText(child.getField4());
+        etChildField5.setText(child.getField5());
         spinnerParent.setSelection(getParentPosition(child.getIdParent()));
         btnAddUpdateChild.setText("Update Child");
     }

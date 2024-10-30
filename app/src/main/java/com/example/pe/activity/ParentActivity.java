@@ -37,9 +37,6 @@ public class ParentActivity extends AppCompatActivity {
 
         if (parent != null) {
             etParentField1.setText(parent.getField1());
-            etParentField2.setText(parent.getField2());
-            etParentField3.setText(parent.getField3());
-            etParentField4.setText(parent.getField4());
             btnAddParent.setText("Cập Nhật Parent");
         }
 

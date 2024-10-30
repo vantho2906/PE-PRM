@@ -8,19 +8,31 @@
         android:id="@+id/etChildField1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Field 1" />
+        android:hint="Name" />
 
     <EditText
         android:id="@+id/etChildField2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Field 2" />
+        android:hint="Date" />
 
     <EditText
         android:id="@+id/etChildField3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Field 3" />
+        android:hint="Gender" />
+
+    <EditText
+        android:id="@+id/etChildField4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/etChildField5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address" />
 
     <Spinner
         android:id="@+id/spinnerParent"
@@ -31,7 +43,7 @@
         android:id="@+id/btnAddUpdateChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Child" />
+        android:text="Thêm Student" />
 
     <ListView
         android:id="@+id/lvChildren"

@@ -26,9 +26,20 @@
         android:layout_height="wrap_content"
         android:text="Field 3" />
 
+
+        <TextView
+            android:id="@+id/tvChildField4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Field 4" />
+        <TextView
+            android:id="@+id/tvChildField5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Field 5" />
     <TextView
-        android:id="@+id/tvChildField4"
+        android:id="@+id/parentFieldName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Field 4" />
+        android:text="Parent Name" />
     </LinearLayout>

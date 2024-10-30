@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 
 public class ManageParentActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
-    private EditText etParentField1, etParentField2, etParentField3, etParentField4;
+    private EditText etParentField1;
     private Button btnAddUpdateParent;
     private ListView lvParents;
     private ParentAdapter parentAdapter;
@@ -37,9 +37,6 @@ public class ManageParentActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
         etParentField1 = findViewById(R.id.etParentField1);
-        etParentField2 = findViewById(R.id.etParentField2);
-        etParentField3 = findViewById(R.id.etParentField3);
-        etParentField4 = findViewById(R.id.etParentField4);
         btnAddUpdateParent = findViewById(R.id.btnAddUpdateParent);
         lvParents = findViewById(R.id.lvParents);
 
@@ -60,29 +57,20 @@ public class ManageParentActivity extends AppCompatActivity {
 
     private void addParent() {
         String field1 = etParentField1.getText().toString().trim();
-        String field2 = etParentField2.getText().toString().trim();
-        String field3 = etParentField3.getText().toString().trim();
-        String field4 = etParentField4.getText().toString().trim();
 
-        if (!validateInputs(field1, field2, field3, field4)) {
+        if (!validateInputs(field1)) {
             return;
         }
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("field1", field1);
-        values.put("field2", field2);
-        values.put("field3", field3);
-        values.put("field4", field4);
 
         long result = db.insert("Parent", null, values);
         if (result != -1) {
             Toast.makeText(this, "Added successfully", Toast.LENGTH_SHORT).show();
             loadParents();
             etParentField1.setText("");
-            etParentField2.setText("");
-            etParentField3.setText("");
-            etParentField4.setText("");
         } else {
             Toast.makeText(this, "Failed to add", Toast.LENGTH_SHORT).show();
         }
@@ -90,56 +78,47 @@ public class ManageParentActivity extends AppCompatActivity {
 
     private void updateParent() {
         String etParentField1 = this.etParentField1.getText().toString().trim();
-        String etParentField2 = this.etParentField2.getText().toString().trim();
-        String etParentField3 = this.etParentField3.getText().toString().trim();
-        String etParentField4 = this.etParentField4.getText().toString().trim();
 
-        if (!validateInputs(etParentField1, etParentField2, etParentField3, etParentField4)) {
+        if (!validateInputs(etParentField1)) {
             return;
         }
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("field1", etParentField1);
-        values.put("field2", etParentField2);
-        values.put("field3", etParentField3);
-        values.put("field4", etParentField4);
 
         int result = db.update("Parent", values, "id=?", new String[]{String.valueOf(selectedParent.getId())});
         if (result > 0) {
             Toast.makeText(this, "Updated successfully", Toast.LENGTH_SHORT).show();
             loadParents();
             this.etParentField1.setText("");
-            this.etParentField2.setText("");
-            this.etParentField3.setText("");
-            this.etParentField4.setText("");
             selectedParent = null;
-            btnAddUpdateParent.setText("Add Parent");
+            btnAddUpdateParent.setText("Add Major");
         } else {
             Toast.makeText(this, "Failed to update parent", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private boolean validateInputs(String tenParent, String email, String diaChi, String dienThoai) {
+    private boolean validateInputs(String tenParent) {
         if (tenParent.isEmpty()) {
-            Toast.makeText(this, "Tên tác giả không được để trống", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Tên Major không được để trống", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (email.isEmpty() || !Pattern.matches("^[A-Za-z0-9+_.-]+@(.+)$", email)) {
-            Toast.makeText(this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+//        if (email.isEmpty() || !Pattern.matches("^[A-Za-z0-9+_.-]+@(.+)$", email)) {
+//            Toast.makeText(this, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
 
-        if (diaChi.isEmpty()) {
-            Toast.makeText(this, "Địa chỉ không được để trống", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        if (dienThoai.isEmpty() || !Pattern.matches("\\d{10,11}", dienThoai)) {
-            Toast.makeText(this, "Điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+//        if (diaChi.isEmpty()) {
+//            Toast.makeText(this, "Địa chỉ không được để trống", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
+//
+//        if (dienThoai.isEmpty() || !Pattern.matches("\\d{10,11}", dienThoai)) {
+//            Toast.makeText(this, "Điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
 
         return true;
     }
@@ -153,11 +132,11 @@ public class ManageParentActivity extends AppCompatActivity {
             do {
                 int idParent = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 String field1 = cursor.getString(cursor.getColumnIndexOrThrow("field1"));
-                String field2 = cursor.getString(cursor.getColumnIndexOrThrow("field2"));
-                String field3 = cursor.getString(cursor.getColumnIndexOrThrow("field3"));
-                String field4 = cursor.getString(cursor.getColumnIndexOrThrow("field4"));
+//                String field2 = cursor.getString(cursor.getColumnIndexOrThrow("field2"));
+//                String field3 = cursor.getString(cursor.getColumnIndexOrThrow("field3"));
+//                String field4 = cursor.getString(cursor.getColumnIndexOrThrow("field4"));
 
-                Parent parent = new Parent(idParent, field1, field2, field3, field4);
+                Parent parent = new Parent(idParent, field1);
                 parentList.add(parent);
             } while (cursor.moveToNext());
         }
@@ -175,9 +154,6 @@ public class ManageParentActivity extends AppCompatActivity {
     public void setSelectedParent(Parent parent) {
         selectedParent = parent;
         etParentField1.setText(parent.getField1());
-        etParentField2.setText(parent.getField2());
-        etParentField3.setText(parent.getField3());
-        etParentField4.setText(parent.getField4());
         btnAddUpdateParent.setText("Update Parent");
     }
 

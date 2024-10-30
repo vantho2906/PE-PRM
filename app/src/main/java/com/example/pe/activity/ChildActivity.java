@@ -94,10 +94,10 @@ public class ChildActivity extends AppCompatActivity {
             do {
                 int idParent = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 String tenParent = cursor.getString(cursor.getColumnIndexOrThrow("field1"));
-                String email = cursor.getString(cursor.getColumnIndexOrThrow("field2"));
-                String diaChi = cursor.getString(cursor.getColumnIndexOrThrow("field3"));
-                String dienThoai = cursor.getString(cursor.getColumnIndexOrThrow("field4"));
-                Parent parent = new Parent(idParent, tenParent, email, diaChi, dienThoai);
+//                String email = cursor.getString(cursor.getColumnIndexOrThrow("field2"));
+//                String diaChi = cursor.getString(cursor.getColumnIndexOrThrow("field3"));
+//                String dienThoai = cursor.getString(cursor.getColumnIndexOrThrow("field4"));
+                Parent parent = new Parent(idParent, tenParent);
                 parentList.add(parent);
             } while (cursor.moveToNext());
         }

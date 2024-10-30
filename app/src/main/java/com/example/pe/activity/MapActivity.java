@@ -47,7 +47,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        geocodeAddress(parent.getField3());
+        geocodeAddress(parent.getField1());
     }
 
     @Override

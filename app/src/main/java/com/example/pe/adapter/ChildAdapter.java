@@ -34,17 +34,21 @@ public class ChildAdapter extends ArrayAdapter<Child> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.child_item, parent, false);
         }
 
-        TextView tvTenChild = convertView.findViewById(R.id.tvChildField1);
-        TextView tvNgayXb = convertView.findViewById(R.id.tvChildField2);
-        TextView tvTheLoai = convertView.findViewById(R.id.tvChildField3);
-        TextView tvParent = convertView.findViewById(R.id.tvChildField4);
+        TextView field1 = convertView.findViewById(R.id.tvChildField1);
+        TextView field2 = convertView.findViewById(R.id.tvChildField2);
+        TextView field3 = convertView.findViewById(R.id.tvChildField3);
+        TextView field4 = convertView.findViewById(R.id.tvChildField4);
+        TextView field5 = convertView.findViewById(R.id.tvChildField5);
+        TextView parentFieldName = convertView.findViewById(R.id.parentFieldName);
 
-        tvTenChild.setText(child.getField1());
-        tvNgayXb.setText(child.getField2());
-        tvTheLoai.setText(child.getField3());
+        field1.setText(child.getField1());
+        field2.setText(child.getField2());
+        field3.setText(child.getField3());
+        field4.setText(child.getField4());
+        field5.setText(child.getField5());
 
         String parentName = getParentName(child.getIdParent());
-        tvParent.setText(parentName);
+        parentFieldName.setText(parentName);
 
         convertView.setOnClickListener(v -> {
             ((ManageChildActivity) getContext()).setSelectedChild(child);
@@ -52,11 +56,11 @@ public class ChildAdapter extends ArrayAdapter<Child> {
 
         convertView.setOnLongClickListener(v -> {
             new AlertDialog.Builder(getContext())
-                    .setTitle("Delete Child")
-                    .setMessage("Are you sure you want to delete this sách?")
+                    .setTitle("Delete Student")
+                    .setMessage("Are you sure you want to delete this student?")
                     .setPositiveButton("Yes", (dialog, which) -> {
                         deleteChild(child);
-                        Toast.makeText(getContext(), "Sách deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Student deleted", Toast.LENGTH_SHORT).show();
                     })
                     .setNegativeButton("No", null)
                     .show();
@@ -76,7 +80,7 @@ public class ChildAdapter extends ArrayAdapter<Child> {
             return parentName;
         }
 
-        return "Unknown Parent";
+        return "Unknown Major";
     }
 
     private void deleteChild(Child child) {
